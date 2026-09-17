@@ -1,0 +1,12 @@
+# --- LangChain core + Groq LLM provider ---
+# Groq is used for its genuine ongoing free tier (no credit card, no trial
+# expiry) and very fast inference — see README "Model choice" section for
+# the specific RPM/TPM limits this design was built around.
+langchain-core>=0.3.0
+langchain-groq>=1.1.0
+
+# --- Utilities ---
+python-dotenv>=1.0.0
+
+# --- UI ---
+streamlit>=1.37.0
