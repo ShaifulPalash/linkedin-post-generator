@@ -1,21 +1,33 @@
 # 📝 LinkedIn Post Generator
 
 <p align="center">
+
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11+">
+
   <img src="https://img.shields.io/badge/LangChain-LCEL-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain LCEL">
+
   <img src="https://img.shields.io/badge/Groq-API-F55036?style=for-the-badge&logo=groq&logoColor=white" alt="Groq">
+
   <img src="https://img.shields.io/badge/Streamlit-UI-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="MIT License">
+
 </p>
 
 <p align="center">
+
   <img src="https://img.shields.io/badge/tests-11%20passing-brightgreen?style=flat-square" alt="11 tests passing">
+
   <img src="https://img.shields.io/badge/lint-Ruff%20clean-blue?style=flat-square" alt="Ruff clean">
+
   <img src="https://img.shields.io/badge/LLM-GPT--OSS--20B-purple?style=flat-square" alt="GPT-OSS-20B">
+
 </p>
 
 <p align="center">
-  <b>Generate professional LinkedIn posts from a topic and language using LangChain, Groq, and Streamlit.</b>
+
+<b>Generate professional LinkedIn posts from a topic and language using LangChain, Groq, and Streamlit.</b>
+
 </p>
 
 ---
@@ -23,28 +35,51 @@
 ## 📌 Table of Contents
 
 * [Overview](#-overview)
+
 * [Task Objective](#-task-objective)
+
 * [Features](#-features)
+
 * [Architecture](#-architecture)
+
 * [Why a Chain Instead of an Agent?](#-why-a-chain-instead-of-an-agent)
+
 * [Model Configuration](#-model-configuration)
+
 * [Prompt Design](#-prompt-design)
+
 * [Screenshots](#-screenshots)
+
 * [Project Structure](#-project-structure)
+
 * [Prerequisites](#-prerequisites)
+
 * [Installation](#-installation)
+
 * [Environment Configuration](#-environment-configuration)
+
 * [Running the Application](#-running-the-application)
+
 * [Previewing Prompts](#-previewing-prompts)
+
 * [Testing](#-testing)
+
 * [Code Quality and CI](#-code-quality-and-ci)
+
 * [Error Handling](#-error-handling)
+
 * [Security](#-security)
+
 * [Limitations](#-limitations)
+
 * [Troubleshooting](#-troubleshooting)
+
 * [Demo Walkthrough](#-demo-walkthrough)
+
 * [Submission Checklist](#-submission-checklist)
+
 * [Future Improvements](#-future-improvements)
+
 * [License](#-license)
 
 ---
@@ -54,35 +89,55 @@
 **LinkedIn Post Generator** is a LangChain-based application that generates professional LinkedIn posts from two user-provided inputs:
 
 1. **Topic** — the subject of the LinkedIn post.
+
 2. **Language** — the language in which the post should be generated.
 
 The application uses a structured LangChain LCEL pipeline:
 
 ```text
 User Input
+
     ↓
+
 Prompt Template
+
     ↓
+
 Groq LLM
+
     ↓
+
 String Output Parser
+
     ↓
+
 Post + Hashtags
+
     ↓
+
 Streamlit UI
 ```
 
 The generated content is displayed through a simple Streamlit interface with:
 
 * A topic input field
+
 * Language selection
+
 * Support for manually entering another language
+
 * Loading feedback
+
 * Generated post display
+
 * One-click copy functionality
+
 * Hashtag display
+
 * Hashtag copy functionality
+
 * `.txt` download functionality
+
 * Friendly validation and error messages
 
 ---
@@ -92,6 +147,7 @@ The generated content is displayed through a simple Streamlit interface with:
 The objective of this Module 21 project is to build an AI-powered application that generates LinkedIn posts based on:
 
 * A user-selected **topic**
+
 * A user-selected **language**
 
 The application should produce professional LinkedIn-style content and relevant hashtags while demonstrating the use of LangChain for LLM application development.
@@ -109,10 +165,15 @@ Generates professional LinkedIn-style posts from a simple topic and language inp
 The application supports predefined languages including:
 
 * English
+
 * Bengali
+
 * Spanish
+
 * French
+
 * Arabic
+
 * Hindi
 
 It also provides an **Other (type manually)** option for additional languages.
@@ -136,6 +197,7 @@ The LLM is instructed to generate relevant hashtags separately from the main pos
 Users can copy:
 
 * The complete LinkedIn post
+
 * All generated hashtags
 
 directly to the clipboard.
@@ -187,7 +249,7 @@ The project follows a simple separation-of-concerns architecture.
                                ▼
                     ┌─────────────────────┐
                     │ generate_linkedin   │
-                    │       _post()       │
+                    │      _post()        │
                     └──────────┬──────────┘
                                │
                                ▼
@@ -201,12 +263,12 @@ The project follows a simple separation-of-concerns architecture.
                                ▼
                     ┌─────────────────────┐
                     │      Groq API       │
-                    │ GPT-OSS-20B         │
+                    │     GPT-OSS-20B     │
                     └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │ Post + Hashtags     │
+                    │     Post + Hashtags │
                     └─────────────────────┘
 ```
 
@@ -292,16 +354,22 @@ This separation makes it possible to improve the writing instructions without mo
 The prompt is responsible for communicating requirements such as:
 
 * The requested topic
+
 * The requested language
+
 * Professional LinkedIn-style writing
+
 * Appropriate structure and readability
+
 * Relevant hashtags
+
 * A predictable delimiter between the post and hashtag sections
 
 The application then parses the LLM response into:
 
 ```text
 post
+
 hashtags
 ```
 
@@ -364,10 +432,15 @@ The screenshots below demonstrate the application's actual generated output acro
 These screenshots provide concrete evidence of:
 
 * Topic-based generation
+
 * Multi-language generation
+
 * Different content domains
+
 * Generated hashtags
+
 * Streamlit UI output
+
 * The application's actual behavior
 
 ---
@@ -376,6 +449,7 @@ These screenshots provide concrete evidence of:
 
 ```text
 linkedin-post-generator/
+
 │
 ├── .github/
 │   └── workflows/
@@ -398,7 +472,7 @@ linkedin-post-generator/
 ├── Makefile                          # Development shortcuts
 ├── README.md                         # Project documentation
 ├── app.py                            # Streamlit application
-├── chain.py                          # LangChain generation pipeline
+├── chain.py                           # LangChain generation pipeline
 ├── prompts.py                        # Prompt template
 ├── requirements.txt                  # Runtime dependencies
 ├── requirements-dev.txt              # Development dependencies
@@ -414,9 +488,13 @@ linkedin-post-generator/
 Before running the project, make sure you have:
 
 * Python **3.11 or newer**
+
 * `pip`
+
 * Git
+
 * A Groq API key
+
 * Internet access for API requests
 
 A virtual environment is strongly recommended.
@@ -429,6 +507,7 @@ A virtual environment is strongly recommended.
 
 ```bash
 git clone <your-repository-url>
+
 cd linkedin-post-generator
 ```
 
@@ -438,6 +517,7 @@ cd linkedin-post-generator
 
 ```bash
 python3 -m venv .venv
+
 source .venv/bin/activate
 ```
 
@@ -445,6 +525,7 @@ source .venv/bin/activate
 
 ```powershell
 py -3.11 -m venv .venv
+
 .venv\Scripts\activate
 ```
 
@@ -509,12 +590,19 @@ Open that address in your browser.
 ### Using the Application
 
 1. Enter a topic.
+
 2. Select a language.
+
 3. If necessary, choose **Other (type manually)** and enter a custom language.
+
 4. Click **Generate Post**.
+
 5. Wait for the LLM response.
+
 6. Review the generated post.
+
 7. Copy the post or hashtags using the copy buttons.
+
 8. Optionally download the generated content as a `.txt` file.
 
 ---
@@ -560,15 +648,25 @@ The project currently contains **11 automated tests**.
 The tests verify application behavior including:
 
 * Empty topic validation
+
 * Empty language validation
+
 * Input whitespace handling
+
 * Hashtag parsing
+
 * Hashtag removal from the main post
+
 * Missing hashtag delimiter handling
+
 * Successful generation
+
 * Persistent rate-limit handling
+
 * Transient rate-limit handling
+
 * Generic exception handling
+
 * Prevention of unnecessary LLM calls during invalid input
 
 ### Testing Philosophy
@@ -576,9 +674,13 @@ The tests verify application behavior including:
 Real LLM calls are not used in the automated test suite because they:
 
 * Consume API tokens
+
 * Require an API key
+
 * Depend on network availability
+
 * Produce non-deterministic creative output
+
 * Can be affected by external rate limits
 
 Instead, the tests inject fake LLM implementations to test the application's own logic deterministically.
@@ -618,9 +720,13 @@ runs automated checks on repository changes.
 The workflow performs:
 
 1. Repository checkout
+
 2. Python environment setup
+
 3. Dependency installation
+
 4. Ruff linting
+
 5. Pytest execution
 
 The CI pipeline does not require a real Groq API key because the automated tests use fake LLM implementations.
@@ -646,8 +752,11 @@ For example:
 When Groq returns a rate-limit error, the application:
 
 1. Detects the specific rate-limit exception.
+
 2. Waits briefly.
+
 3. Retries once.
+
 4. Displays a user-friendly message if the second attempt also fails.
 
 ### Other Exceptions
@@ -705,12 +814,19 @@ This project intentionally keeps the architecture simple.
 The application generates LinkedIn posts but does not perform:
 
 * Web research
+
 * Fact verification
+
 * Source citation
+
 * Image generation
+
 * LinkedIn API publishing
+
 * Content scheduling
+
 * User authentication
+
 * Persistent conversation history
 
 ### LLM-Generated Content
@@ -789,6 +905,10 @@ http://localhost:8501
 
 ## 🎬 Demo Walkthrough
 
+### 🎥 Demo Video
+
+[Watch the 2–3 minute demo video](https://drive.google.com/file/d/1uSpjyi1IKqYGSiXm1aQ1oieHcyQ2Aq6C/view?usp=sharing)
+
 A short **2–3 minute** demonstration can cover the following.
 
 ### 1. Introduction — 0:00–0:20
@@ -802,9 +922,13 @@ Explain:
 Show:
 
 * `prompts.py`
+
 * `chain.py`
+
 * `app.py`
+
 * `tests/`
+
 * `screenshots/`
 
 Briefly explain the separation between the prompt, generation logic, UI, and tests.
@@ -820,9 +944,13 @@ streamlit run app.py
 Demonstrate:
 
 * `AI in Healthcare` in English
+
 * A Bengali or Spanish generation
+
 * Copying the generated post
+
 * Copying hashtags
+
 * Downloading the generated `.txt` file
 
 ### 4. Validation — 1:45–2:05
@@ -852,13 +980,21 @@ Explain that the automated tests do not require a real API key.
 Briefly summarize:
 
 * LangChain LCEL
+
 * Groq GPT-OSS-20B
+
 * Streamlit
+
 * Multi-language generation
+
 * Hashtag parsing
+
 * Error handling
+
 * Automated testing
+
 * Ruff
+
 * GitHub Actions
 
 ---
@@ -868,27 +1004,49 @@ Briefly summarize:
 Before submitting the project, verify the following:
 
 * [ ] Repository is pushed to GitHub.
+
 * [ ] `README.md` is complete.
+
 * [ ] `.env` is **not** committed.
+
 * [ ] `.env.example` is included.
+
 * [ ] `requirements.txt` is included.
+
 * [ ] `requirements-dev.txt` is included.
+
 * [ ] `pyproject.toml` is included.
+
 * [ ] `Makefile` is included.
+
 * [ ] `tests/` is included.
+
 * [ ] GitHub Actions workflow is included.
+
 * [ ] All seven screenshots are included in `screenshots/`.
+
 * [ ] `streamlit run app.py` successfully starts the application.
+
 * [ ] English generation has been tested.
+
 * [ ] Bengali generation has been tested.
+
 * [ ] Spanish generation has been tested.
+
 * [ ] Multiple topics have been tested.
+
 * [ ] Copy functionality has been tested.
+
 * [ ] Hashtag generation has been tested.
+
 * [ ] `.txt` download has been tested.
+
 * [ ] Empty-input validation has been tested.
+
 * [ ] `pytest tests/ -v` passes.
+
 * [ ] `ruff check .` passes.
+
 * [ ] Demo video has been recorded if required by the assignment.
 
 ---
@@ -898,16 +1056,27 @@ Before submitting the project, verify the following:
 Possible future enhancements include:
 
 * [ ] LinkedIn API integration for direct publishing
+
 * [ ] User authentication
+
 * [ ] Saved post history
+
 * [ ] Post editing before download
+
 * [ ] Custom tone selection
+
 * [ ] Adjustable post length
+
 * [ ] Industry-specific writing styles
+
 * [ ] AI-generated post images
+
 * [ ] Content scheduling
+
 * [ ] Web-based research and source citations
+
 * [ ] Additional LLM provider support
+
 * [ ] Deployment to Streamlit Community Cloud or another hosting platform
 
 ---
@@ -929,5 +1098,7 @@ A practical AI application demonstrating modern LLM application development with
 ---
 
 <p align="center">
-  <b>📝 Generate. ✨ Refine. 🚀 Share.</b>
+
+<b>📝 Generate. ✨ Refine. 🚀 Share.</b>
+
 </p>
